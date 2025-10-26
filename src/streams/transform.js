@@ -2,8 +2,7 @@ import { Transform } from 'node:stream';
 
 const transform = async () => {
   const reverseTransform = new Transform({
-    encoding: 'utf8',
-    transform(chunk, callback) {
+    transform(chunk, _encoding, callback) {
       const str = chunk.toString();
       const reversed = str.split('').reverse().join('');
       callback(null, reversed);
